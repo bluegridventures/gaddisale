@@ -34,59 +34,68 @@ export function Navbar() {
   }, [pathname])
 
   return (
-    <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 
-        ${isTransparent 
-          ? "bg-transparent border-b border-white/10 backdrop-blur-sm" 
-          : "bg-white shadow-md border-b border-gray-200"
-        }
-      `}
+   <header
+  className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 
+    ${isTransparent 
+      ? "bg-transparent border-none shadow-none backdrop-blur-0" 
+      : "bg-white shadow-md border-b border-gray-200"
+    }
+  `}
+>
+
+     <div className="container mx-auto flex h-16 items-center px-4">
+  <div className="flex items-center gap-6 mr-auto">
+  <Link href="/" className="flex items-center gap-2">
+    <Car className={`h-6 w-6 transition-colors ${isTransparent ? "text-white" : "text-primary"}`} />
+    <span className={`text-xl font-bold transition-colors ${isTransparent ? "text-white" : "text-black"}`}>
+      AutoMarket
+    </span>
+  </Link>
+
+  <nav className="hidden md:flex items-center gap-6 ml-8">
+    <Link
+      href="/cars"
+      className={`text-sm font-medium transition-colors 
+      ${isTransparent ? "text-white" : "text-gray-700"}`}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2">
-            <Car className={`h-6 w-6 transition-colors ${isTransparent ? "text-white" : "text-primary"}`} />
-            <span className={`text-xl font-bold transition-colors ${isTransparent ? "text-white" : "text-black"}`}>
-              AutoMarket
-            </span>
-          </Link>
+      Browse Cars
+    </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
-            <Link
-              href="/cars"
-              className={`text-sm font-medium transition-colors 
-              ${isTransparent ? "text-white" : "text-gray-700"}`}
-            >
-              Browse Cars
-            </Link>
+    <Link
+      href="/sell"
+      className={`text-sm font-medium transition-colors 
+      ${isTransparent ? "text-white" : "text-gray-700"}`}
+    >
+      Sell Your Car
+    </Link>
+  </nav>
+</div>
 
-            <Link
-              href="/sell"
-              className={`text-sm font-medium transition-colors 
-              ${isTransparent ? "text-white" : "text-gray-700"}`}
-            >
-              Sell Your Car
-            </Link>
-          </nav>
-        </div>
 
         <div className="flex items-center gap-3">
-          <Button
-            asChild
-            variant="ghost"
-            size="sm"
-            className={`hidden md:flex transition-colors 
-            ${isTransparent ? "text-white" : "text-gray-700"}`}
-          >
-            <Link href="/login">
-              <User className={`h-4 w-4 mr-2 ${isTransparent ? "text-white" : "text-gray-700"}`} />
-              Sign In
-            </Link>
-          </Button>
+         <Button
+  asChild
+  variant="ghost"
+  size="sm"
+  className={`hidden md:flex transition-colors group
+    ${isTransparent ? "text-white hover:text-black" : "text-gray-700 hover:text-black"}
+  `}
+>
+  <Link href="/login" className="flex items-center">
+    <User
+      className={`h-4 w-4 mr-2 transition-colors
+        ${isTransparent ? "text-white group-hover:text-black" : "text-gray-700 group-hover:text-black"}
+      `}
+    />
+    Sign In
+  </Link>
+</Button>
 
-          <Button asChild size="sm">
-            <Link href="/sell">Post Ad</Link>
-          </Button>
+
+         <Button asChild size="sm" className="bg-[#ffeab3] text-black hover:bg-[#f5d98f]">
+  <Link href="/sell">Post Ad</Link>
+</Button>
+
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="md:hidden">

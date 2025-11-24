@@ -12,54 +12,46 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
     
-     {/* Hero Section */}
-<section  id="hero-video"  className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section */}
+      <section id="hero-video" className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.65]"
+        >
+          <source src="https://scleasing.dk/wp-content/uploads/sites/3/2025/03/Hjemmeside-SCG-FULL-HD-LOW-RES.mp4" type="video/mp4" />
+        </video>
 
-  {/* Background Video */}
- <video
-  autoPlay
-  muted
-  loop
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover brightness-[0.65]"
->
-  <source src="https://scleasing.dk/wp-content/uploads/sites/3/2025/03/Hjemmeside-SCG-FULL-HD-LOW-RES.mp4 " type="video/mp4" />
-</video>
+        {/* Hero Content */}
+        <div className="relative z-20 container mx-auto px-6 md:px-10 text-center max-w-4xl">
+          <div className="max-w-3xl mx-auto text-center space-y-6 text-white">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg animate-fadeIn">
+              Find Your Dream Car Today
+            </h1>
 
+            <p className="text-lg md:text-2xl text-white/90 mt-4 mb-8 drop-shadow-md animate-fadeIn delay-150">
+              Browse thousands of new and used cars from trusted sellers across the country
+            </p>
 
-  {/* dark overlay */}
-  {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70 z-10"></div> */}
-
-  {/* Hero Content */}
-  <div className="relative z-20 container mx-auto px-6 md:px-10 text-center max-w-4xl">
-    <div className="max-w-3xl mx-auto text-center space-y-6 text-white">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-lg animate-fadeIn">
-        Find Your Dream Car Today
-      </h1>
-
-      <p className="text-lg md:text-2xl text-white/90 mt-4 mb-8 drop-shadow-md animate-fadeIn delay-150">
-        Browse thousands of new and used cars from trusted sellers across the country
-      </p>
-
-      <div className="backdrop-blur-xl bg-white/10 p-4 rounded-2xl shadow-2xl mx-auto w-full max-w-3xl animate-fadeIn delay-300 border border-white/20">
-        <SearchBar />
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
+            <div className="backdrop-blur-xl bg-white/10 p-4 rounded-2xl shadow-2xl mx-auto w-full max-w-3xl animate-fadeIn delay-300 border border-white/20">
+              <SearchBar />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Cars Section */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold">Featured Cars</h2>
-              <p className="text-muted-foreground mt-1">Hand-picked premium vehicles</p>
+              <h2 className="text-3xl font-bold text-gray-900">Featured Cars</h2>
+              <p className="text-gray-600 mt-1">Hand-picked premium vehicles</p>
             </div>
-            <Button variant="ghost" asChild className="hidden md:flex">
+            <Button variant="ghost" asChild className="hidden md:flex hover:text-gray-900 transition-colors">
               <Link href="/cars?featured=true">
                 View All
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -74,7 +66,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 text-center md:hidden">
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="border-gray-300 hover:border-gray-900">
               <Link href="/cars?featured=true">
                 View All Featured Cars
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -85,14 +77,14 @@ export default function HomePage() {
       </section>
 
       {/* Latest Cars Section */}
-      <section className="py-16 md:py-20 bg-muted/40">
+      <section className="py-16 md:py-20 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold">Latest Cars</h2>
-              <p className="text-muted-foreground mt-1">Recently listed vehicles</p>
+              <h2 className="text-3xl font-bold text-gray-900">Latest Cars</h2>
+              <p className="text-gray-600 mt-1">Recently listed vehicles</p>
             </div>
-            <Button variant="ghost" asChild className="hidden md:flex">
+            <Button variant="ghost" asChild className="hidden md:flex hover:text-gray-900 transition-colors">
               <Link href="/cars">
                 View All
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -107,7 +99,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 text-center md:hidden">
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="border-gray-300 hover:border-gray-900">
               <Link href="/cars">
                 View All Cars
                 <ArrowRight className="ml-2 h-4 w-4" />

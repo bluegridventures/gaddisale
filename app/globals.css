@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Remove default focus/hover glow on all inputs and select triggers */
+input:focus,
+textarea:focus,
+button:focus,
+[role="combobox"]:focus,
+[role="listbox"] {
+  outline: none !important;
+  box-shadow: none !important; /* remove the ring/shadow */
+  border-color: inherit !important; /* keep border color unchanged */
+}
+
+
+
 @custom-variant dark (&:is(.dark *));
 
 /* <CHANGE> Updated theme colors for car marketplace - teal primary, clean neutrals */

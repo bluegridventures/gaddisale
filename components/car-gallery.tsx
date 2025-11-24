@@ -22,7 +22,7 @@ export function CarGallery({ images, title }: CarGalleryProps) {
             key={index}
             onClick={() => setSelectedImage(image)}
             className={cn(
-              "relative aspect-video w-24 flex-shrink-0 overflow-hidden rounded-md border-2",
+              "relative aspect-video w-24 shrink-0 overflow-hidden rounded-md border-2",
               selectedImage === image ? "border-primary" : "border-transparent",
             )}
           >

@@ -109,3 +109,19 @@ If you need interactivity, consider converting part of this to a Client Componen
 [00:10:49.622] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764080758329}
 [00:23:32.350] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars?featured=true color: rgb(120, 120, 120) color: inherit {"dp":"/cars","o":"http://localhost:3000/cars?featured=true","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764081520931}
 [00:23:42.292] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764081530905}
+[00:33:22.319] Server  LOG      ✓ Compiled in 301ms
+[00:33:24.265] Server  LOG      ✓ Compiled in 245ms
+[00:33:49.034] Server  LOG      ✓ Compiled in 263ms
+[00:34:25.431] Server  LOG      ✓ Compiled in 318ms
+[00:34:30.919] Server  LOG      ✓ Compiled in 223ms
+[00:34:46.845] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/1 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082195547}
+[00:34:59.869] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082208486}
+[00:35:29.692] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/sell color: rgb(120, 120, 120) color: inherit {"dp":"/sell","o":"http://localhost:3000/sell","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082238159}
+[00:35:37.280] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082245939}
+[00:35:53.538] Server  LOG      ✓ Compiled in 122ms
+[00:35:57.792] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/sell color: rgb(120, 120, 120) color: inherit {"dp":"/sell","o":"http://localhost:3000/sell","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082266340}
+[00:36:11.876] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars color: rgb(120, 120, 120) color: inherit {"dp":"/cars","o":"http://localhost:3000/cars","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082280511}
+[00:36:20.943] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/sell color: rgb(120, 120, 120) color: inherit {"dp":"/sell","o":"http://localhost:3000/sell","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082289462}
+[00:36:23.150] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082291806}
+[00:36:31.164] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/4 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/4","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082299866}
+[00:36:38.107] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764082306735}

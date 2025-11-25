@@ -524,9 +524,9 @@ const dummyCars = [
         transmission: "automatic",
         fuelType: "petrol",
         images: [
-            "/placeholder.svg?height=400&width=600",
-            "/placeholder.svg?height=400&width=600",
-            "/placeholder.svg?height=400&width=600"
+            "/dummycar.jpg",
+            "/dummycar.jpg",
+            "/dummycar.jpg"
         ],
         description: "Luxury Mercedes C-Class with premium features. Immaculate condition.",
         features: [
@@ -557,9 +557,9 @@ const dummyCars = [
         transmission: "automatic",
         fuelType: "petrol",
         images: [
-            "/placeholder.svg?height=400&width=600",
-            "/placeholder.svg?height=400&width=600",
-            "/placeholder.svg?height=400&width=600"
+            "/dummycar.jpg",
+            "/dummycar.jpg",
+            "/dummycar.jpg"
         ],
         description: "Brand new BMW 3 Series with latest technology and performance features.",
         features: [
@@ -590,9 +590,9 @@ const dummyCars = [
         transmission: "automatic",
         fuelType: "petrol",
         images: [
-            "/placeholder.svg?height=400&width=600",
-            "/placeholder.svg?height=400&width=600",
-            "/placeholder.svg?height=400&width=600"
+            "/dummycar.jpg",
+            "/dummycar.jpg",
+            "/dummycar.jpg"
         ],
         description: "Sporty Audi A4 with excellent performance. Well maintained with complete service history.",
         features: [

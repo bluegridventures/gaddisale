@@ -44,7 +44,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Cars Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-[#f5f1e5]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -77,7 +77,7 @@ export default function HomePage() {
       </section>
 
       {/* Latest Cars Section */}
-      <section className="py-16 md:py-20 bg-gray-100">
+      <section className="py-16 md:py-20 bg-[#f5f1e5]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -110,9 +110,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center">
+          <div className="bg-[#f5f1e5] text-gray-700 rounded-xl p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Sell Your Car?</h2>
             <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto text-pretty">
               {"List your car in minutes and reach thousands of potential buyers"}

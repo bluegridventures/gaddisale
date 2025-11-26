@@ -11,7 +11,7 @@ interface CarCardProps {
 export function CarCard({ car }: CarCardProps) {
   return (
     <Link href={`/cars/${car.id}`}>
-      <Card className="overflow-hidden hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer h-140 rounded-lg bg-[#F9F9F9] border border-gray-700 hover:border-blue-500 group">
+      <Card className="py-0 overflow-hidden hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer h-140 rounded-lg bg-[#F9F9F9] border border-gray-700 hover:border-blue-500 group">
         <div className="aspect-video relative overflow-hidden bg-gray-700 rounded-t-lg">
           <img
             src={car.images[0] || "/placeholder.svg"}

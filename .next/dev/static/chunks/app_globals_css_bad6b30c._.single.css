@@ -93,7 +93,6 @@
     --color-emerald-500: #00bb7f;
     --color-blue-500: #3080ff;
     --color-blue-900: #1c398e;
-    --color-purple-300: #d9b3ff;
     --color-purple-600: #9810fa;
     --color-gray-50: #f9fafb;
     --color-gray-200: #e5e7eb;
@@ -155,7 +154,6 @@
       --color-emerald-500: lab(66.9756% -58.27 19.5419);
       --color-blue-500: lab(54.1736% 13.3368 -74.6839);
       --color-blue-900: lab(26.1542% 15.7545 -51.5504);
-      --color-purple-300: lab(78.3298% 26.2195 -34.9499);
       --color-purple-600: lab(43.0295% 75.21 -86.5669);
       --color-gray-50: lab(98.2596% -.247031 -.706708);
       --color-gray-200: lab(91.6229% -.159085 -2.26791);
@@ -740,10 +738,6 @@
     height: calc(var(--spacing) * 140);
   }
 
-  .h-\[200px\] {
-    height: 200px;
-  }
-
   .h-\[var\(--radix-select-trigger-height\)\] {
     height: var(--radix-select-trigger-height);
   }
@@ -814,10 +808,6 @@
 
   .w-\[180px\] {
     width: 180px;
-  }
-
-  .w-\[300px\] {
-    width: 300px;
   }
 
   .w-fit {
@@ -1233,10 +1223,6 @@
     background-color: var(--color-gray-700);
   }
 
-  .bg-gray-800 {
-    background-color: var(--color-gray-800);
-  }
-
   .bg-muted {
     background-color: var(--muted);
   }
@@ -1329,11 +1315,6 @@
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
 
-  .bg-gradient-to-r {
-    --tw-gradient-position: to right in oklab;
-    background-image: linear-gradient(var(--tw-gradient-stops));
-  }
-
   .from-blue-900 {
     --tw-gradient-from: var(--color-blue-900);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -1356,11 +1337,6 @@
 
   .to-gray-300 {
     --tw-gradient-to: var(--color-gray-300);
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  }
-
-  .to-purple-300 {
-    --tw-gradient-to: var(--color-purple-300);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
@@ -1420,6 +1396,10 @@
 
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
+  }
+
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
   }
 
   .py-0\.5 {
@@ -2017,12 +1997,6 @@
   @media (hover: hover) {
     .hover\:bg-accent:hover {
       background-color: var(--accent);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:bg-blue-500:hover {
-      background-color: var(--color-blue-500);
     }
   }
 

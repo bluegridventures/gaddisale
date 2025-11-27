@@ -44,7 +44,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Cars Section */}
-      <section className="py-16 md:py-20 bg-[#f5f1e5]">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -77,7 +77,7 @@ export default function HomePage() {
       </section>
 
       {/* Latest Cars Section */}
-      <section className="py-16 md:py-20 bg-[#f5f1e5]">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>

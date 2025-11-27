@@ -18,7 +18,7 @@ export function CarCard({ car }: CarCardProps) {
 
   return (
       <>
-    <Card className="w-full pt-0 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
+    <Card className="w-full pt-0 overflow-hidden rounded-xl border border-gray-200 bg-[#F9F9F9] shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
     
       <div className="relative h-52 w-full overflow-hidden bg-gray-100">
         <img

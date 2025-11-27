@@ -11,8 +11,6 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-    
-      {/* Hero Section */}
       <section id="hero-video" className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Video */}
         <video

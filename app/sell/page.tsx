@@ -3,7 +3,7 @@ import { PostAdForm } from "@/components/post-ad-form"
 export default function SellPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
-      <div className="bg-primary py-12 text-primary-foreground mb-8">
+      <div className="bg-primary py-12 text-primary-foreground mb-8 mt-[65px]">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl font-bold mt-6 mb-2">Sell Your Car</h1>
           <p className="text-primary-foreground/80 max-w-2xl mx-auto">

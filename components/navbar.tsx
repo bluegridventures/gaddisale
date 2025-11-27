@@ -92,7 +92,7 @@ export function Navbar() {
 </Button>
 
 
-         <Button asChild size="sm" className="bg-[#ffeab3] text-black hover:bg-[#f5d98f]">
+         <Button asChild size="sm" className="bg-[#f5e8a3] text-black hover:bg-[#f5d98f]">
   <Link href="/sell">Post Ad</Link>
 </Button>
 

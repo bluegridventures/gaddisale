@@ -20,4 +20,5 @@ export interface Car {
   }
   postedDate: string
   featured?: boolean
+   picturesOnTheWay?: boolean;
 }

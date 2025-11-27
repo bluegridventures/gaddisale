@@ -1,11 +1,483 @@
-[00:00:27.439] Server  LOG      ✓ Ready in 21.9s
-[00:01:04.075] Server  LOG      ○ Compiling / ...
-[00:01:28.405] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:31.439] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:31.439] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:01:31.440] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764153960045}
-[00:22:28.604] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:22:31.137] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:22:31.137] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:22:31.137] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764155219764}
-[00:45:33.384] Server  LOG      ✓ Compiled in 1881ms
+[00:00:21.944] Server  LOG      ✓ Ready in 14.7s
+[00:00:25.002] Server  LOG      ○ Compiling / ...
+[00:00:38.802] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:40.845] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:40.845] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:40.845] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764234393528}
+[00:01:06.957] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/2 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/2","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764234419645}
+[00:01:54.123] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764234466749}
+[00:13:19.463] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/1 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235152158}
+[00:13:27.371] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235160007}
+[00:14:55.632] Browser ERROR   ./components/car-card.tsx:59:23
+Parsing ecmascript source code failed
+  57 |               <span>{car.year}</span>
+  58 |             </div>
+> 59 |         </CardContent>
+     |                       ^
+> 60 |
+     | ^
+> 61 |         <CardFooter className="p-6 pt-0">
+     | ^^^^^^^^^
+  62 |           <div className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
+  63 |             <MapPin className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+  64 |             <span>{car.city}</span>
+
+Expected '</', got 'jsx text (
+
+        )'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:15:31.638] Browser ERROR   ./components/car-card.tsx:55:26
+Parsing ecmascript source code failed
+  53 |              <div className="flex items-center gap-2 group-hover:text-gray-700 transition-colors duration-200">
+  54 |               <Calendar className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+> 55 |               <span>{car.}</span>
+     |                          ^
+  56 |             </div>
+  57 |           </div>
+  58 |           
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:15:47.627] Browser ERROR   ./components/car-card.tsx:54:26
+Parsing ecmascript source code failed
+  52 |             </div>
+  53 |              <div className="flex items-center gap-2 group-hover:text-gray-700 transition-colors duration-200">
+> 54 |               < className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+     |                          ^
+  55 |               <span>{car.transmission}</span>
+  56 |             </div>
+  57 |           </div>
+
+Expected '</', got '='
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:16:01.167] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/1 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235313854}
+[00:18:29.465] Server  LOG      ✓ Compiled in 80ms
+[00:18:34.033] Server  LOG      ✓ Compiled in 121ms
+[00:18:41.432] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235474074}
+[00:20:10.822] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.826] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.828] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.830] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.832] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.834] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.836] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.838] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.839] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.847] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.850] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.852] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.853] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.855] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.856] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.858] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:10.860] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:20:10.862] Server  ERROR    ⨯ ReferenceError: FuelIcon is not defined
+[00:20:11.628] Browser ERROR   uncaughtError: ReferenceError: FuelIcon is not defined
+[00:20:18.476] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:19.116] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:20:19.116] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:20:19.116] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235571807}
+[00:23:04.322] Server  LOG      ✓ Compiled in 146ms
+[00:23:36.348] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/2 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/2","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235769029}
+[00:23:49.575] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235782204}
+[00:24:00.641] Browser ERROR   ./components/car-card.tsx:58:26
+Parsing ecmascript source code failed
+  56 |             </div>
+  57 |              <div className="flex items-center gap-2 group-hover:text-gray-700 transition-colors duration-200">
+> 58 |               < className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+     |                          ^
+  59 |               <span>{car.fuelType}</span>
+  60 |             </div>
+  61 |           </div>
+
+Expected '</', got '='
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:24:04.001] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.002] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.003] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.005] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.006] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.008] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.009] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.011] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.012] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.016] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.018] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.020] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.021] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.024] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.025] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.027] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.030] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:24:04.035] Server  ERROR    ⨯ ReferenceError: Settings is not defined
+[00:24:04.659] Browser ERROR   uncaughtError: ReferenceError: Settings is not defined
+[00:24:10.548] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:11.655] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:24:11.655] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:24:11.655] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235803667}
+[00:24:18.628] Browser ERROR   ./components/car-card.tsx:59:26
+Parsing ecmascript source code failed
+  57 |              <div className="flex items-center gap-2 group-hover:text-gray-700 transition-colors duration-200">
+  58 |               <Settings className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+> 59 |               <span>{car.}</span>
+     |                          ^
+  60 |             </div>
+  61 |           </div>
+  62 |           
+
+Expected '</', got '}'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:24:54.997] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/2 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/2","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235847688}
+[00:25:04.268] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764235856897}
+[00:34:14.238] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:34:15.884] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:34:15.884] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:34:15.884] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764236408566}
+[00:35:48.641] Browser ERROR   ./components/car-card.tsx:63:23
+Parsing ecmascript source code failed
+  61 |          
+  62 |           
+> 63 |         </CardContent>
+     |                       ^
+> 64 |
+     | ^
+> 65 |         <CardFooter className="p-6 pt-0">
+     | ^^^^^^^^^
+  66 |           <div className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
+  67 |             <MapPin className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+  68 |             <span>{car.city}</span>
+
+Expected '</', got 'jsx text (
+
+        )'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:35:51.667] Browser ERROR   ./components/car-card.tsx:64:23
+Parsing ecmascript source code failed
+  62 |          
+  63 |           
+> 64 |         </CardContent>
+     |                       ^
+> 65 |
+     | ^
+> 66 |         <CardFooter className="p-6 pt-0">
+     | ^^^^^^^^^
+  67 |           <div className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
+  68 |             <MapPin className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+  69 |             <span>{car.city}</span>
+
+Expected '</', got 'jsx text (
+
+        )'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:36:15.639] Browser ERROR   ./components/car-card.tsx:65:23
+Parsing ecmascript source code failed
+  63 |          
+  64 |           
+> 65 |         </CardContent>
+     |                       ^
+> 66 |
+     | ^
+> 67 |         <CardFooter className="p-6 pt-0">
+     | ^^^^^^^^^
+  68 |           <div className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
+  69 |             <MapPin className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
+  70 |             <span>{car.city}</span>
+
+Expected '</', got 'jsx text (
+
+        )'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[00:43:00.447] Server  LOG      ✓ Compiled in 171ms
+[00:43:19.639] Server  LOG      ✓ Compiled in 79ms
+[00:44:51.265] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:44:51.924] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:44:51.924] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:44:51.924] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764237044617}
+[00:48:24.651] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. h
+[00:48:29.252] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.254] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.255] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.262] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.263] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.264] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.266] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.269] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.270] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.271] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.275] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.277] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.288] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.294] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.305] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.310] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:29.311] Server  ERROR   D:\car-gaddisale-main\.next\dev\server\chunks\ssr\[root-of-the-server]__81dbda6f._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:48:29.313] Server  ERROR    ⨯ ReferenceError: Heading6 is not defined
+[00:48:30.651] Browser ERROR   uncaughtError: ReferenceError: Heading6 is not defined
+[00:48:32.145] Server  LOG      ✓ Compiled in 71ms
+[00:48:33.585] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:35.642] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:48:35.642] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:48:35.642] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764237267937}
+[00:48:40.716] Server  LOG      ✓ Compiled in 157ms
+[00:53:13.886] Server  LOG      ✓ Compiled in 1316ms
+[04:35:00.628] Server  LOG      ✓ Compiled in 447ms
+[04:37:46.994] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/1 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764251019665}
+[04:37:59.730] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764251032289}
+[04:42:20.637] Browser ERROR   ./components/car-card.tsx:6:10
+Ecmascript file had an error
+  4 | import type { Car } from "@/lib/types";
+  5 | import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+> 6 | import { useState } from "react";
+    |          ^^^^^^^^
+  7 |
+  8 |
+  9 | interface CarCardProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[04:45:30.634] Browser ERROR   ./components/car-card.tsx:6:10
+Ecmascript file had an error
+  4 | import type { Car } from "@/lib/types";
+  5 | // import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+> 6 | import { useState } from "react";
+    |          ^^^^^^^^
+  7 |
+  8 |
+  9 | interface CarCardProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[04:45:38.957] Server  ERROR    ⨯ ./components/car-card.tsx:6:10
+Ecmascript file had an error
+  4 | import type { Car } from "@/lib/types";
+  5 | // import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+> 6 | import { useState } from "react";
+    |          ^^^^^^^^
+  7 |
+  8 |
+  9 | interface CarCardProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+
+
+[04:45:39.459] Browser ERROR   ./components/car-card.tsx:6:10
+Ecmascript file had an error
+  4 | import type { Car } from "@/lib/types";
+  5 | // import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+> 6 | import { useState } from "react";
+    |          ^^^^^^^^
+  7 |
+  8 |
+  9 | interface CarCardProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[04:45:42.317] Server  LOG      ○ Compiling /_error ...
+[04:46:42.240] Server  LOG      ✓ Compiled in 62.4s
+[04:47:05.876] Browser ERROR   uncaughtError: Error: ./components/car-card.tsx:6:10
+Ecmascript file had an error
+  4 | import type { Car } from "@/lib/types";
+  5 | // import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+> 6 | import { useState } from "react";
+    |          ^^^^^^^^
+  7 |
+  8 |
+  9 | interface CarCardProps {
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+
+
+[04:48:00.273] Server  LOG      ✓ Compiled in 89ms
+[04:48:03.250] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:48:04.632] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[04:48:04.632] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[04:48:04.632] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764251637175}
+[04:48:06.470] Server  LOG      ✓ Compiled in 1740ms
+[04:51:57.391] Server  LOG      ✓ Compiled in 627ms
+[04:52:46.767] Server  LOG      ✓ Compiled in 184ms
+[04:52:48.072] Server  LOG      ✓ Compiled in 445ms
+[04:53:24.525] Server  LOG      ✓ Compiled in 179ms
+[04:54:10.290] Server  LOG      ✓ Compiled in 216ms
+[04:54:10.636] Browser ERROR   ./components/car-card.tsx:123:7
+Parsing ecmascript source code failed
+  121 |       </Dialog>
+  122 |     </>
+> 123 |       </div>
+      |       ^
+  124 |     </Card>
+  125 |   );
+  126 | }
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[04:54:10.636] Browser ERROR   ./components/car-card.tsx:123:8
+Parsing ecmascript source code failed
+  121 |       </Dialog>
+  122 |     </>
+> 123 |       </div>
+      |        ^^^^^
+  124 |     </Card>
+  125 |   );
+  126 | }
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[04:54:21.861] Server  LOG      ✓ Compiled in 180ms
+[04:55:29.089] Server  LOG      ✓ Compiled in 248ms
+[04:55:29.626] Browser ERROR   ./components/car-card.tsx:110:6
+Parsing ecmascript source code failed
+  108 |       </div>
+  109 |     </Card>
+> 110 |      {/* --- SELLER INFO POPUP — PLACE IT HERE --- */}
+      |      ^
+  111 |       <Dialog open={open} onOpenChange={setOpen}>
+  112 |         <DialogContent className="rounded-xl">
+  113 |           <DialogHeader>
+
+Expected ',', got '{'
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[04:55:55.227] Server  LOG      ✓ Compiled in 1334ms
+[04:56:28.262] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:56:28.262] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:56:35.834] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:56:35.834] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:59:37.734] Server  LOG      ✓ Compiled in 121ms
+[04:59:41.647] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:59:41.647] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[04:59:46.882] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/1 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764252339561}
+[04:59:51.455] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764252344014}
+[05:00:57.070] Server  LOG      ✓ Compiled in 310ms
+[05:00:59.155] Server  LOG      ✓ Compiled in 196ms
+[05:04:34.643] Server  LOG      ✓ Compiled in 142ms
+[05:04:35.731] Server  LOG      ✓ Compiled in 204ms
+[05:05:13.582] Server  LOG      ✓ Compiled in 301ms
+[05:06:51.705] Server  LOG      ✓ Compiled in 254ms
+[05:08:25.228] Server  LOG      ✓ Compiled in 90ms
+[05:08:34.189] Server  LOG      ✓ Compiled in 110ms
+[05:08:36.730] Server  LOG      ✓ Compiled in 303ms
+[05:09:22.558] Server  LOG      ✓ Compiled in 163ms
+[05:09:23.633] Browser ERROR   ./components/car-card.tsx:33:31
+Parsing ecmascript source code failed
+  31 |         <div className="absolute top-3 left-3 flex gap-2">
+  32 |           <span className="rounded-full {/* PRICE / DETAILS SECTION */}
+> 33 | <div className="mt-6 space-y-1">
+     |                               ^^
+  34 |
+  35 |   {mode === "purchase" && (
+  36 |     <>
+
+Unterminated string constant
+
+Import trace:
+  Server Component:
+    ./components/car-card.tsx
+    ./app/page.tsx
+[05:09:24.219] Server  LOG      ✓ Compiled in 182ms
+[05:09:32.330] Server  LOG      ✓ Compiled in 207ms
+[05:10:01.480] Server  LOG      ✓ Compiled in 522ms
+[05:22:46.229] Server  LOG      ✓ Compiled in 128ms
+[05:27:20.627] Browser ERROR   ./lib/dummy-data.ts:27:23
+Parsing ecmascript source code failed
+  25 |     postedDate: "2025-01-15",
+  26 |     featured: true,
+> 27 |     picturesOnTheWay: ,
+     |                       ^
+  28 |   },
+  29 |   {
+  30 |     id: "2",
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./lib/dummy-data.ts
+    ./app/page.tsx
+[05:28:40.864] Server  LOG      ○ Compiling /cars ...
+[05:28:42.397] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars?featured=true color: rgb(120, 120, 120) color: inherit {"dp":"/cars","o":"http://localhost:3000/cars?featured=true","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764254076247}
+[05:28:52.617] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764254086511}
+[05:30:33.907] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:30:33.907] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:30:40.525] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:30:40.526] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[05:31:44.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/1 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/1","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764254258239}
+[05:31:52.928] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764254266825}

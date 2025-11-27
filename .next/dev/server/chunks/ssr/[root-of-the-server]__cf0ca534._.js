@@ -48,7 +48,8 @@ const dummyCars = [
             email: "ahmed@example.com"
         },
         postedDate: "2025-01-15",
-        featured: true
+        featured: true,
+        picturesOnTheWay: false
     },
     {
         id: "2",
@@ -144,7 +145,8 @@ const dummyCars = [
             email: "saad@example.com"
         },
         postedDate: "2025-01-10",
-        featured: true
+        featured: true,
+        picturesOnTheWay: true
     },
     {
         id: "5",
@@ -177,7 +179,8 @@ const dummyCars = [
             email: "dealer@bmw.pk"
         },
         postedDate: "2025-01-22",
-        featured: true
+        featured: true,
+        picturesOnTheWay: true
     },
     {
         id: "6",
@@ -209,7 +212,8 @@ const dummyCars = [
             phone: "+92 333 7778888",
             email: "zain@example.com"
         },
-        postedDate: "2025-01-12"
+        postedDate: "2025-01-12",
+        picturesOnTheWay: true
     }
 ];
 }),

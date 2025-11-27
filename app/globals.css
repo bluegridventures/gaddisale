@@ -151,3 +151,8 @@ button:focus,
 .delay-150 { animation-delay: 150ms; }
 .delay-300 { animation-delay: 300ms; }
 
+  @media (min-width: 96rem) {
+    .container {
+      max-width: 80rem !important;
+    }
+  }

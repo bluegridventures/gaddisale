@@ -1,65 +1,176 @@
+"use client";
+
 import Link from "next/link";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Gauge } from "lucide-react";
 import type { Car } from "@/lib/types";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
+
 
 interface CarCardProps {
   car: Car;
 }
 
 export function CarCard({ car }: CarCardProps) {
-  return (
-    <Link href={`/cars/${car.id}`}>
-      <Card className="py-0 overflow-hidden hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer h-140 rounded-lg bg-[#F9F9F9] border border-gray-700 hover:border-blue-500 group">
-        <div className="aspect-video relative overflow-hidden bg-gray-700 rounded-t-lg">
-          <img
-            src={car.images[0] || "/placeholder.svg"}
-            alt={`${car.make} ${car.model}`}
-            className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    const [open, setOpen] = useState(false);
+    const [mode, setMode] = useState<"leasing" | "purchase">("leasing");
 
-          {car.featured && (
-            <Badge className="absolute top-3 left-3 bg-linear-to-r from-blue-900 to-purple-600 text-white px-3 py-1 text-xs font-semibold rounded-md shadow-lg animate-fade-in">
-              Featured
-            </Badge>
-          )}
-          {car.condition === "new" && (
-            <Badge className="absolute top-3 right-3 bg-linear-to-r from-green-700 to-emerald-500 text-white px-3 py-1 text-xs font-semibold rounded-md shadow-lg animate-fade-in">
-              New
-            </Badge>
-          )}
+  return (
+      <>
+    <Card className="w-full pt-0 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
+    
+      <div className="relative h-52 w-full overflow-hidden bg-gray-100">
+        <img
+          src={car.images[0] || "/placeholder.svg"}
+          alt={`${car.make} ${car.model}`}
+          className="h-full w-full object-cover"
+        />
+
+       
+        <div className="absolute top-3 left-3 flex gap-2">
+          <span className="rounded-full bg-[#f5e8a3] px-3 py-1 text-xs font-semibold text-gray-900 shadow-sm">
+            NEWS
+          </span>
+
+         {car.picturesOnTheWay && (
+    <span className="rounded-full bg-[#d8d8d8] px-3 py-1 text-xs font-semibold text-gray-900 shadow-sm">
+      PICTURES ON THE WAY
+    </span>
+  )}
+        </div>
+      </div>
+
+   
+    {/* LEASING / PURCHASE TOGGLE */}
+<div className="flex items-center justify-center gap-2 mt-3">
+
+  <button
+    onClick={() => setMode("leasing")}
+    className={`px-6 py-2 rounded-full text-sm font-semibold transition
+      ${mode === "leasing" ? "bg-black text-white" : "bg-gray-100 text-gray-600"}
+    `}
+  >
+    Leasing
+  </button>
+
+  <button
+    onClick={() => setMode("purchase")}
+    className={`px-6 py-2 rounded-full text-sm font-semibold transition
+      ${mode === "purchase" ? "bg-[#f5e8a3] text-black" : "bg-gray-100 text-gray-600"}
+    `}
+  >
+    Purchase
+  </button>
+
+</div>
+
+
+      {/* content */}
+      <div className="px-5 py-5">
+       
+        <h2 className="text-lg font-bold text-gray-900">
+          {car.make}
+        </h2>
+        <p className="text-sm text-gray-700 mt-1">
+          {car.model}
+        </p>
+
+       
+        <div className="mt-5 space-y-2 text-sm text-gray-800">
+          <div className="flex justify-between">
+            <span className="text-gray-500">Year</span>
+            <span className="font-medium">{car.year}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Propellant</span>
+            <span className="font-medium">{car.fuelType}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Kilometer</span>
+            <span className="font-medium">
+              {car.mileage.toLocaleString()}
+            </span>
+          </div>
         </div>
 
-        <CardContent className="p-6 space-y-4">
-          <h3 className="font-bold text-2xl text-black group-hover:text-black-200 transition-colors duration-200 line-clamp-1">
-            {car.make} {car.model}
-          </h3>
+      
+       {/* price and details */}
+<div className="mt-6 space-y-1">
 
-          <p className="text-3xl font-extrabold text-transparent bg-linear-to-r from-gray-900 to-gray-300 bg-clip-text">
-            Rs {car.price.toLocaleString()}
-          </p>
+  {mode === "purchase" && (
+    <>
+      <div className="flex justify-between text-sm">
+        <span className="text-gray-500">Purchase Price</span>
+        <span className="font-semibold text-gray-900">
+          Rs {car.price.toLocaleString()}
+        </span>
+      </div>
 
-          <div className="flex flex-wrap gap-4 text-sm text-gray-800">
-            <div className="flex items-center gap-2 group-hover:text-gray-700 transition-colors duration-200">
-              <Calendar className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
-              <span>{car.year}</span>
-            </div>
-            <div className="flex items-center gap-2 group-hover:text-gray-700 transition-colors duration-200">
-              <Gauge className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
-              <span>{car.mileage.toLocaleString()} km</span>
-            </div>
+      <div className="flex justify-between text-sm">
+        <span className="text-gray-500">Tax Status</span>
+        <span className="font-semibold text-gray-900">Without Charge/Fee</span>
+      </div>
+    </>
+  )}
+
+  {mode === "leasing" && (
+    <>
+      <div className="flex justify-between text-sm">
+        <span className="text-gray-500">First-time performance</span>
+        <span className="font-semibold text-gray-900">
+          Rs {car.price.toLocaleString()}
+        </span>
+      </div>
+
+      <div className="flex justify-between text-sm">
+        <span className="text-gray-500">Leasing per month</span>
+        <span className="font-semibold text-gray-900">
+          Rs {(car.price / 36).toLocaleString()}
+        </span>
+      </div>
+    </>
+  )}
+
+</div>
+
+
+       
+        <div className="mt-6 flex w-full items-center justify-between">
+        <Link
+          href={`/cars/${car.id}`}
+          className="rounded-full bg-black px-5 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition"
+        >
+          See details
+        </Link>
+
+        <button
+          className="rounded-full border border-gray-400 px-5 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition"
+          onClick={() => setOpen(true)}
+        >
+          Contact
+        </button>
+      </div>
+      
+      </div>
+    </Card>
+     {/* seller popup */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="rounded-xl">
+          <DialogHeader>
+            <DialogTitle>Seller Information</DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-2 text-sm">
+           <p><strong>Name:</strong> {car.seller.name}</p>
+<p><strong>Phone:</strong> {car.seller.phone}</p>
+<p><strong>City:</strong> {car.city}</p>
+<p><strong>Email:</strong> {car.seller.email}</p>
           </div>
-        </CardContent>
-
-        <CardFooter className="p-6 pt-0">
-          <div className="flex items-center gap-2 text-sm font-bold text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
-            <MapPin className="h-4 w-4 text-gray-800 group-hover:text-blue-900 transition-colors duration-200" />
-            <span>{car.city}</span>
-          </div>
-        </CardFooter>
-      </Card>
-    </Link>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

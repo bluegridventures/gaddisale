@@ -24,6 +24,7 @@ export const dummyCars: Car[] = [
     },
     postedDate: "2025-01-15",
     featured: true,
+    picturesOnTheWay: false,
   },
   {
     id: "2",
@@ -96,6 +97,7 @@ export const dummyCars: Car[] = [
     },
     postedDate: "2025-01-10",
     featured: true,
+    picturesOnTheWay: true,
   },
   {
     id: "5",
@@ -123,6 +125,7 @@ export const dummyCars: Car[] = [
     },
     postedDate: "2025-01-22",
     featured: true,
+     picturesOnTheWay: true,
   },
   {
     id: "6",
@@ -149,5 +152,6 @@ export const dummyCars: Car[] = [
       email: "zain@example.com",
     },
     postedDate: "2025-01-12",
+     picturesOnTheWay: true,
   },
 ]

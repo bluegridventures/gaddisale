@@ -2,6 +2,10 @@
 
 import type React from "react"
 
+import { db, storage } from "@/lib/firebaseConfig"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -57,18 +61,42 @@ export function PostAdForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
-    // Simulate API call
-    console.log(values)
-    console.log(images)
-    setTimeout(() => {
-      setIsSubmitting(false)
-      alert("Ad posted successfully!")
-      form.reset()
-      setImages([])
-    }, 2000)
+ async function onSubmit(values: z.infer<typeof formSchema>) {
+  setIsSubmitting(true);
+
+  try {
+    // Upload images to Firebase Storage
+    const uploadedImages: string[] = [];
+
+    for (const img of images) {
+      const blob = await fetch(img).then((res) => res.blob());
+      const imageRef = ref(storage, `ads/${Date.now()}-${Math.random()}.jpg`);
+
+      await uploadBytes(imageRef, blob);
+      const url = await getDownloadURL(imageRef);
+
+      uploadedImages.push(url);
+    }
+
+    // Save data to Firestore database
+    await addDoc(collection(db, "ads"), {
+      ...values,
+      images: uploadedImages,
+      createdAt: serverTimestamp(),
+    });
+
+    alert("Ad posted successfully!");
+    form.reset();
+    setImages([]);
+
+  } catch (error) {
+    console.error("Error posting ad:", error);
+    alert("Something went wrong! Check console.");
   }
+
+  setIsSubmitting(false);
+}
+
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files

@@ -26,6 +26,7 @@ export const dummyCars: Car[] = [
     featured: true,
     picturesOnTheWay: false,
   },
+  
   {
     id: "2",
     make: "Honda",
@@ -157,5 +158,28 @@ export const dummyCars: Car[] = [
     postedDate: "2025-01-12",
      picturesOnTheWay: true,
      isNew: true,
+  },
+   {
+    id: "7",
+    make: "Toyota",
+    model: "Supra-mk4",
+    year: 2024,
+    price: 72000000,
+    mileage: 5000,
+    city: "Lahore",
+    condition: "used",
+    engineSize: 1800,
+    transmission: "automatic",
+    fuelType: "petrol",
+    images: ["/supra-mk4.jpg", "/supra-mk4.jpg", "/supra-mk4.jpg"],
+    description: "iconic 1990s sports car known for its powerful 2JZ engine, especially the twin-turbo version, which provided 320 hp and enabled a 0-100 km/h time of about 4.9 seconds",
+    features: ["Sunroof", "Leather Seats", "Navigation", "Reverse Camera", "Cruise Control"],
+    seller: {
+      name: "Fatima Ali",
+      phone: "+92 321 7654321",
+      email: "fatima@example.com",
+    },
+    postedDate: "2025-01-18",
+    featured: true,
   },
 ]

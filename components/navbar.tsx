@@ -48,7 +48,7 @@ export function Navbar() {
   <Link href="/" className="flex items-center gap-2">
     <Car className={`h-6 w-6 transition-colors ${isTransparent ? "text-white" : "text-primary"}`} />
     <span className={`text-xl font-bold transition-colors ${isTransparent ? "text-white" : "text-black"}`}>
-      AutoMarket
+      GaddiSale
     </span>
   </Link>
 

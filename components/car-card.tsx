@@ -29,13 +29,24 @@ export function CarCard({ car }: CarCardProps) {
 
        
         <div className="absolute top-3 left-3 flex gap-2">
+          {car.isNew && (
           <span className="rounded-full bg-[#f5e8a3] px-3 py-1 text-xs font-semibold text-gray-900 shadow-sm">
-            NEWS
+            NEW
           </span>
-
+          )}
          {car.picturesOnTheWay && (
     <span className="rounded-full bg-[#d8d8d8] px-3 py-1 text-xs font-semibold text-gray-900 shadow-sm">
       PICTURES ON THE WAY
+    </span>
+  )}
+   {car.featured && (
+    <span className="rounded-full bg-[#d8d8d8] px-3 py-1 text-xs font-semibold text-gray-900 shadow-sm">
+      Featured
+    </span>
+  )}
+   {car.isUsed && (
+    <span className="rounded-full bg-[#d8d8d8] px-3 py-1 text-xs font-semibold text-gray-900 shadow-sm">
+      Used
     </span>
   )}
         </div>

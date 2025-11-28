@@ -70,6 +70,7 @@ export const dummyCars: Car[] = [
       email: "usman@example.com",
     },
     postedDate: "2025-01-20",
+    isUsed: true,
   },
   {
     id: "4",
@@ -96,8 +97,9 @@ export const dummyCars: Car[] = [
       email: "saad@example.com",
     },
     postedDate: "2025-01-10",
-    featured: true,
+   
     picturesOnTheWay: true,
+    isNew: true,
   },
   {
     id: "5",
@@ -124,8 +126,9 @@ export const dummyCars: Car[] = [
       email: "dealer@bmw.pk",
     },
     postedDate: "2025-01-22",
-    featured: true,
+    featured: false,
      picturesOnTheWay: true,
+    isNew: true,
   },
   {
     id: "6",
@@ -153,5 +156,6 @@ export const dummyCars: Car[] = [
     },
     postedDate: "2025-01-12",
      picturesOnTheWay: true,
+     isNew: true,
   },
 ]

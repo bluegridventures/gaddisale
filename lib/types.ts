@@ -20,5 +20,7 @@ export interface Car {
   }
   postedDate: string
   featured?: boolean
-   picturesOnTheWay?: boolean;
+  picturesOnTheWay?: boolean;
+  isNew?: boolean;
+  isUsed?: boolean;
 }

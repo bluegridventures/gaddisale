@@ -20,7 +20,7 @@ export function CarCard({ car }: CarCardProps) {
       <>
     <Card className="w-full pt-0 overflow-hidden rounded-xl border border-gray-200 bg-[#F9F9F9] shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
     
-      <div className="relative h-52 w-full overflow-hidden bg-gray-100">
+   <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 rounded-t-xl">
         <img
           src={car.images[0] || "/placeholder.svg"}
           alt={`${car.make} ${car.model}`}

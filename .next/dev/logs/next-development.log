@@ -641,3 +641,8 @@ Import trace:
 [07:03:17.586] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764341990031}
 [07:03:20.107] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/7 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/7","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764341992606}
 [07:03:40.185] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764342012646}
+[07:13:23.195] Server  LOG      ✓ Compiled in 905ms
+[07:15:59.169] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/cars/7 color: rgb(120, 120, 120) color: inherit {"dp":"/cars/[id]","o":"http://localhost:3000/cars/7","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764342751670}
+[07:16:09.138] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764342761576}
+[07:16:11.086] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[07:16:11.087] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.

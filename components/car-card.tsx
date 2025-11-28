@@ -88,7 +88,7 @@ export function CarCard({ car }: CarCardProps) {
         </p>
 
        
-        <div className="mt-5 space-y-2 text-sm text-gray-800">
+        <div className="mt-2 space-y-2 text-sm text-gray-800">
           <div className="flex justify-between">
             <span className="text-gray-500">Year</span>
             <span className="font-medium">{car.year}</span>
@@ -109,7 +109,7 @@ export function CarCard({ car }: CarCardProps) {
 
       
        {/* price and details */}
-<div className="mt-6 space-y-1">
+<div className="mt-2 space-y-1">
 
   {mode === "purchase" && (
     <>

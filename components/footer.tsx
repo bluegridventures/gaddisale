@@ -9,7 +9,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Car className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">AutoMarket</span>
+              <span className="text-xl font-bold">GaddiSale</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {"Your trusted platform for buying and selling vehicles online."}

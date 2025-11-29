@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {/* <CHANGE> Added Navbar and Footer layout structure */}
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen mt-[65px]">{children}</main>
         <Footer />
         <Analytics />
       </body>

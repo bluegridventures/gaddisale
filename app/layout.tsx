@@ -11,10 +11,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 // <CHANGE> Updated metadata for car marketplace
 export const metadata: Metadata = {
-  title: "AutoMarket - Buy & Sell Cars Online",
+  title: "GaddiSale - Buy & Sell Cars Online",
   description:
     "Find the best deals on new and used cars. Browse thousands of vehicles, compare prices, and connect with sellers.",
-  generator: "v0.app",
   icons: {
     icon: [
       {

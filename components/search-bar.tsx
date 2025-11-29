@@ -81,7 +81,7 @@ router.push(`/cars?${params.toString()}`)
 
            {/* Price Range */} 
            <Select value={priceRange} onValueChange={setPriceRange}>
-           <SelectTrigger className=" bg-transparent border border-white/30 text-white placeholder:text-white focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-white shadow-none " > 
+           <SelectTrigger className=" bg-transparent border border-white/30 text-white placeholder:text-white focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-white shadow-none max-lg:w-full" > 
            <SelectValue placeholder={<span className="text-white">Price Range</span>} /> 
            </SelectTrigger> 
            <SelectContent className="bg-black/60 text-white border border-white/20 shadow-none"> 

@@ -10,7 +10,7 @@ export default function HomePage() {
   const latestCars = dummyCars.slice(0, 6)
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col -mt-[65px]">
       <section id="hero-video" className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Video */}
         <video

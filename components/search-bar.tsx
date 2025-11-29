@@ -37,7 +37,7 @@ router.push(`/cars?${params.toString()}`)
 
        {/* Make */} 
        <Select value={make} onValueChange={setMake}>
-         <SelectTrigger className=" bg-transparent border border-white/30 text-white placeholder:text-white focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-white shadow-none max-lg:w-full" >
+         <SelectTrigger className=" bg-transparent border border-white/30 text-white placeholder:text-white focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-white shadow-none w-full" >
          <SelectValue placeholder={<span className="text-white">Make</span>} />
          </SelectTrigger>
          <SelectContent className="bg-black/60 text-white border border-white/20 shadow-none"> 

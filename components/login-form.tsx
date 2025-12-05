@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -19,6 +20,8 @@ const loginSchema = z.object({
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+  const search = useSearchParams()
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -28,13 +31,25 @@ export function LoginForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof loginSchema>) {
-    setIsLoading(true)
-    console.log(values)
-    setTimeout(() => {
+  async function onSubmit(values: z.infer<typeof loginSchema>) {
+    try {
+      setIsLoading(true)
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      })
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}))
+        throw new Error(j.error || "Login failed")
+      }
+      const to = search?.get('redirect') || '/'
+      router.push(to)
+    } catch (e: any) {
+      alert(e.message || "Login failed")
+    } finally {
       setIsLoading(false)
-      alert("Logged in successfully! (Demo)")
-    }, 1500)
+    }
   }
 
   return (

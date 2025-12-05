@@ -1,6 +1,10 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/cars/[id]/page": "app/cars/[id]/page.js",
-  "/cars/page": "app/cars/page.js",
-  "/page": "app/page.js"
+  "/admin/cars/page": "app/admin/cars/page.js",
+  "/api/admin/cars/[id]/route": "app/api/admin/cars/[id]/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/track/route": "app/api/track/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/sell/page": "app/sell/page.js"
 }

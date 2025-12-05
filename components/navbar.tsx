@@ -6,10 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Car, Menu, User } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { usePathname } from "next/navigation"
+import { AuthDisplay } from "@/components/user/auth-display"
 
 export function Navbar() {
   const pathname = usePathname()
   const [isTransparent, setIsTransparent] = useState(true)
+  
+
+  if (pathname?.startsWith('/admin')) return null
 
   useEffect(() => {
     // navbar solid on page except home
@@ -73,23 +77,8 @@ export function Navbar() {
 
 
         <div className="flex items-center gap-3">
-         <Button
-  asChild
-  variant="ghost"
-  size="sm"
-  className={`hidden md:flex transition-colors group
-    ${isTransparent ? "text-white hover:text-black" : "text-gray-700 hover:text-black"}
-  `}
->
-  <Link href="/login" className="flex items-center">
-    <User
-      className={`h-4 w-4 mr-2 transition-colors
-        ${isTransparent ? "text-white group-hover:text-black" : "text-gray-700 group-hover:text-black"}
-      `}
-    />
-    Sign In
-  </Link>
-</Button>
+          {/* Auth state */}
+          <AuthDisplay isTransparent={isTransparent} />
 
 
          <Button asChild size="sm" className="bg-[#f5e8a3] text-black hover:bg-[#f5d98f]">

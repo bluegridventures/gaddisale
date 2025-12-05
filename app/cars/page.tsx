@@ -1,37 +1,58 @@
 import { Suspense } from "react"
 import { FilterSidebar } from "@/components/filter-sidebar"
 import { CarCard } from "@/components/car-card"
-import { dummyCars } from "@/lib/dummy-data"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { prisma } from "@/lib/prisma"
 
 interface CarsPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 async function CarsGrid({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-  // Filter logic
-  let filteredCars = [...dummyCars]
+  const make = (searchParams.make as string) || undefined
+  const condition = (searchParams.condition as string) || undefined
+  const sort = (searchParams.sort as string) || "newest"
+  const featuredParam = (searchParams.featured as string) || undefined
 
-  const make = searchParams.make as string
-  const condition = searchParams.condition as string
-  const sort = searchParams.sort as string
+  const orderBy =
+    sort === "price-asc" ? { price: "asc" as const } :
+    sort === "price-desc" ? { price: "desc" as const } : { postedDate: "desc" as const }
 
-  if (make && make !== "all") {
-    filteredCars = filteredCars.filter((car) => car.make.toLowerCase() === make.toLowerCase())
-  }
+  const where: any = { status: 'APPROVED' }
+  if (make && make !== "all") where.make = { equals: make, mode: "insensitive" }
+  if (condition && condition !== "all") where.condition = condition
+  if (featuredParam === "true") where.featured = true
 
-  if (condition && condition !== "all") {
-    filteredCars = filteredCars.filter((car) => car.condition === condition)
-  }
+  const dbCars = await prisma.car.findMany({
+    where,
+    orderBy,
+    include: { images: true, seller: true },
+    take: 60,
+  })
 
-  // Sort logic
-  if (sort === "price-asc") {
-    filteredCars.sort((a, b) => a.price - b.price)
-  } else if (sort === "price-desc") {
-    filteredCars.sort((a, b) => b.price - a.price)
-  } else if (sort === "newest") {
-    filteredCars.sort((a, b) => new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime())
-  }
+  const filteredCars = dbCars.map((c: any) => ({
+    id: c.id,
+    title: c.title,
+    make: c.make,
+    model: c.model,
+    year: c.year,
+    price: Number(c.price),
+    mileage: c.mileage,
+    city: c.city,
+    condition: c.condition,
+    engineSize: 0,
+    transmission: c.transmission,
+    fuelType: c.fuelType,
+    images: c.images.map((i: any) => i.url),
+    description: c.description,
+    features: [],
+    seller: { name: c.seller?.name || "", phone: c.seller?.phone || "", email: c.seller?.email || "" },
+    postedDate: c.postedDate.toISOString(),
+    featured: c.featured,
+    picturesOnTheWay: c.picturesOnTheWay,
+    isNew: c.isNew,
+    isUsed: c.isUsed,
+  }))
 
   if (filteredCars.length === 0) {
     return (
@@ -44,7 +65,7 @@ async function CarsGrid({ searchParams }: { searchParams: { [key: string]: strin
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-      {filteredCars.map((car) => (
+      {filteredCars.map((car: any) => (
         <CarCard key={car.id} car={car} />
       ))}
     </div>

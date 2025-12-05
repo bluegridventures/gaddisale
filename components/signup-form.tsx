@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -26,6 +27,7 @@ const signupSchema = z
 
 export function SignupForm() {
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
@@ -37,13 +39,25 @@ export function SignupForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof signupSchema>) {
-    setIsLoading(true)
-    console.log(values)
-    setTimeout(() => {
+  async function onSubmit(values: z.infer<typeof signupSchema>) {
+    try {
+      setIsLoading(true)
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: values.name, email: values.email, password: values.password }),
+      })
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}))
+        throw new Error(j.error || "Sign up failed")
+      }
+      alert("Account created successfully!")
+      router.push("/")
+    } catch (e: any) {
+      alert(e.message || "Sign up failed")
+    } finally {
       setIsLoading(false)
-      alert("Account created successfully! (Demo)")
-    }, 1500)
+    }
   }
 
   return (

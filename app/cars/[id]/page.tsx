@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
+import { cookies } from "next/headers"
+import { verifyToken } from "@/lib/auth"
 import Link from "next/link"
-import { dummyCars } from "@/lib/dummy-data"
+import { prisma } from "@/lib/prisma"
 import { CarGallery } from "@/components/car-gallery"
 import { SellerCard } from "@/components/seller-card"
 import { Button } from "@/components/ui/button"
@@ -9,11 +11,28 @@ import { Calendar, Gauge, MapPin, Fuel, Settings, ArrowLeft, Share2, Heart } fro
 
 export default async function CarDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const car = dummyCars.find((c) => c.id === id)
+  const car = await prisma.car.findUnique({
+    where: { id },
+    include: { images: true, seller: true },
+  })
 
   if (!car) {
     notFound()
   }
+
+  // Only show non-approved cars to admin
+  if (car.status !== 'APPROVED') {
+    const cookieStore = await (cookies() as any)
+    const token = cookieStore.get('auth_token')?.value
+    const payload = token ? await verifyToken<{ email?: string }>(token) : null
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@bgv.com'
+    if (!payload || payload.email !== adminEmail) {
+      notFound()
+    }
+  }
+
+  const imageUrls = car.images.map((i: any) => i.url)
+  const postedDate = new Date(car.postedDate).toLocaleDateString()
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
@@ -41,7 +60,7 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
                     <MapPin className="h-4 w-4" />
                     <span>{car.city}</span>
                     <span>•</span>
-                    <span>Posted on {car.postedDate}</span>
+                    <span>Posted on {postedDate}</span>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -53,8 +72,7 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
                   </Button>
                 </div>
               </div>
-
-              <CarGallery images={car.images} title={`${car.make} ${car.model}`} />
+              <CarGallery images={imageUrls} title={`${car.make} ${car.model}`} />
             </div>
 
             {/* Key Specs */}
@@ -91,12 +109,7 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
             <div className="bg-white p-6 rounded-lg shadow-sm space-y-4">
               <h2 className="text-xl font-bold">Car Features</h2>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {car.features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
-                    <div className="h-2 w-2 rounded-full bg-primary" />
-                    {feature}
-                  </div>
-                ))}
+                {/* No features stored in DB yet */}
               </div>
             </div>
           </div>
@@ -106,7 +119,7 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <p className="text-sm text-muted-foreground">Price</p>
               <div className="mt-1 flex items-baseline justify-between">
-                <h2 className="text-3xl font-bold text-primary">Rs {car.price.toLocaleString()}</h2>
+                <h2 className="text-3xl font-bold text-primary">Rs {Number(car.price).toLocaleString()}</h2>
                 {car.condition === "new" && <Badge>New</Badge>}
               </div>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -114,7 +127,13 @@ export default async function CarDetailsPage({ params }: { params: Promise<{ id:
               </p>
             </div>
 
-            <SellerCard seller={car.seller} />
+            {car.seller && (
+              <SellerCard seller={{
+                name: car.seller.name,
+                phone: car.seller.phone,
+                email: car.seller.email,
+              }} />
+            )}
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="font-semibold mb-4">Safety Tips</h3>

@@ -1,0 +1,97 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Condition {
+  new
+  used
+}
+
+enum Transmission {
+  automatic
+  manual
+}
+
+enum FuelType {
+  petrol
+  diesel
+  hybrid
+  electric
+}
+
+enum CarStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Seller {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String   @unique
+  cars      Car[]
+  createdAt DateTime @default(now())
+}
+
+model Car {
+  id               String       @id @default(cuid())
+  title            String
+  make             String
+  model            String
+  year             Int
+  price            Decimal
+  mileage          Int
+  city             String
+  condition        Condition
+  transmission     Transmission
+  fuelType         FuelType
+  description      String
+  postedDate       DateTime     @default(now())
+  featured         Boolean      @default(false)
+  picturesOnTheWay Boolean      @default(false)
+  isNew            Boolean      @default(false)
+  isUsed           Boolean      @default(false)
+  status           CarStatus    @default(PENDING)
+
+  sellerId String
+  seller   Seller       @relation(fields: [sellerId], references: [id])
+  images   CarImage[]
+}
+
+model CarImage {
+  id    String @id @default(cuid())
+  url   String
+  sort  Int    @default(0)
+  carId String
+  car   Car    @relation(fields: [carId], references: [id])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model AppUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  passwordHash String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+}
+
+model Visit {
+  id        String   @id @default(cuid())
+  path      String
+  userAgent String?
+  sessionId String?
+  durationSec Int    @default(0)
+  createdAt DateTime @default(now())
+}

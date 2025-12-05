@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
+import { TrackVisit } from "@/components/track-visit"
+import { MainWrapper } from "@/components/main-wrapper"
 import { Footer } from "@/components/footer"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -43,7 +45,8 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {/* <CHANGE> Added Navbar and Footer layout structure */}
         <Navbar />
-        <main className="min-h-screen mt-[65px]">{children}</main>
+        <TrackVisit />
+        <MainWrapper>{children}</MainWrapper>
         <Footer />
         <Analytics />
       </body>

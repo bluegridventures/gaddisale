@@ -1,13 +1,42 @@
 import { Button } from "@/components/ui/button"
 import { SearchBar } from "@/components/search-bar"
 import { CarCard } from "@/components/car-card"
-import { dummyCars } from "@/lib/dummy-data"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { prisma } from "@/lib/prisma"
 
-export default function HomePage() {
-  const featuredCars = dummyCars.filter((car) => car.featured).slice(0, 3)
-  const latestCars = dummyCars.slice(0, 6)
+export default async function HomePage() {
+  const [featuredDb, latestDb] = await Promise.all([
+    prisma.car.findMany({ where: ({ featured: true, status: 'APPROVED' } as any), orderBy: { postedDate: "desc" }, include: { images: true, seller: true }, take: 3 }),
+    prisma.car.findMany({ where: ({ status: 'APPROVED' } as any), orderBy: { postedDate: "desc" }, include: { images: true, seller: true }, take: 6 }),
+  ])
+
+  const toCard = (c: any) => ({
+    id: c.id,
+    title: c.title,
+    make: c.make,
+    model: c.model,
+    year: c.year,
+    price: Number(c.price),
+    mileage: c.mileage,
+    city: c.city,
+    condition: c.condition,
+    engineSize: 0,
+    transmission: c.transmission,
+    fuelType: c.fuelType,
+    images: c.images.map((i: any) => i.url),
+    description: c.description,
+    features: [],
+    seller: { name: c.seller?.name || "", phone: c.seller?.phone || "", email: c.seller?.email || "" },
+    postedDate: c.postedDate.toISOString(),
+    featured: c.featured,
+    picturesOnTheWay: c.picturesOnTheWay,
+    isNew: c.isNew,
+    isUsed: c.isUsed,
+  })
+
+  const featuredCars = featuredDb.map(toCard)
+  const latestCars = latestDb.map(toCard)
 
   return (
     <div className="flex flex-col -mt-[65px]">
@@ -58,7 +87,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredCars.map((car) => (
+            {featuredCars.map((car: any) => (
               <CarCard key={car.id} car={car} />
             ))}
           </div>
@@ -91,7 +120,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {latestCars.map((car) => (
+            {latestCars.map((car: any) => (
               <CarCard key={car.id} car={car} />
             ))}
           </div>

@@ -2,11 +2,8 @@
 
 import type React from "react"
 
-import { db, storage } from "@/lib/firebaseConfig"
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
-
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -35,11 +32,14 @@ const formSchema = z.object({
   sellerName: z.string().min(2, "Name is required"),
   sellerPhone: z.string().min(10, "Please enter a valid phone number"),
   sellerEmail: z.string().email("Invalid email address"),
+  featured: z.boolean().optional(),
 })
 
-export function PostAdForm() {
+export function PostAdForm({ adminMode = false }: { adminMode?: boolean } = {}) {
   const [images, setImages] = useState<string[]>([])
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -58,56 +58,85 @@ export function PostAdForm() {
       sellerName: "",
       sellerPhone: "",
       sellerEmail: "",
+      featured: false,
     },
   })
 
  async function onSubmit(values: z.infer<typeof formSchema>) {
-  setIsSubmitting(true);
-
+  setIsSubmitting(true)
   try {
-    // Upload images to Firebase Storage
-    const uploadedImages: string[] = [];
+    // 1) Upload images to Cloudinary (signed uploads via server signature)
+    const uploadedUrls: string[] = []
+    for (const file of selectedFiles) {
+      const signResp = await fetch('/api/uploads/cloudinary/sign', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ folder: 'gaddisale' }),
+      })
+      if (!signResp.ok) throw new Error('Failed to sign Cloudinary upload')
+      const { timestamp, signature, apiKey, cloudName, folder } = await signResp.json()
 
-    for (const img of images) {
-      const blob = await fetch(img).then((res) => res.blob());
-      const imageRef = ref(storage, `ads/${Date.now()}-${Math.random()}.jpg`);
+      const fd = new FormData()
+      fd.append('file', file)
+      fd.append('api_key', apiKey)
+      fd.append('timestamp', String(timestamp))
+      fd.append('signature', signature)
+      if (folder) fd.append('folder', folder)
 
-      await uploadBytes(imageRef, blob);
-      const url = await getDownloadURL(imageRef);
-
-      uploadedImages.push(url);
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+        method: 'POST',
+        body: fd,
+      })
+      if (!res.ok) throw new Error('Cloudinary upload failed')
+      const data = await res.json()
+      uploadedUrls.push(data.secure_url as string)
     }
 
-    // Save data to Firestore database
-    await addDoc(collection(db, "ads"), {
+    // 2) Persist listing to our API (Postgres via Prisma)
+    const payload = {
       ...values,
-      images: uploadedImages,
-      createdAt: serverTimestamp(),
-    });
+      year: Number(values.year),
+      price: Number(values.price),
+      mileage: Number(values.mileage),
+      images: uploadedUrls,
+      title: values.title,
+      featured: !!values.featured,
+    }
 
-    alert("Ad posted successfully!");
-    form.reset();
-    setImages([]);
+    const resp = await fetch("/api/cars", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+    if (!resp.ok) throw new Error("Failed to save listing")
+    const created = await resp.json()
 
+    alert("Ad posted successfully!")
+    form.reset()
+    setImages([])
+    setSelectedFiles([])
+    router.push(`/cars/${created.id}`)
   } catch (error) {
-    console.error("Error posting ad:", error);
-    alert("Something went wrong! Check console.");
+    console.error("Error posting ad:", error)
+    alert("Something went wrong! Check console.")
   }
-
-  setIsSubmitting(false);
+  setIsSubmitting(false)
 }
 
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
     if (files) {
-      const newImages = Array.from(files).map((file) => URL.createObjectURL(file))
-      setImages((prev) => [...prev, ...newImages])
+      const fileArr = Array.from(files)
+      const newPreviews = fileArr.map((file) => URL.createObjectURL(file))
+      setImages((prev) => [...prev, ...newPreviews])
+      setSelectedFiles((prev) => [...prev, ...fileArr])
     }
   }
 
   const removeImage = (index: number) => {
     setImages((prev) => prev.filter((_, i) => i !== index))
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index))
   }
 
   return (
@@ -342,6 +371,26 @@ export function PostAdForm() {
                     )}
                   />
                 </div>
+
+                {adminMode && (
+                  <FormField
+                    control={form.control}
+                    name="featured"
+                    render={({ field }) => (
+                      <FormItem className="flex items-center space-x-2">
+                        <FormControl>
+                          <input
+                            type="checkbox"
+                            checked={!!field.value}
+                            onChange={(e) => field.onChange(e.target.checked)}
+                          />
+                        </FormControl>
+                        <FormLabel className="font-normal">Featured</FormLabel>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                )}
               </CardContent>
             </Card>
 
@@ -428,7 +477,7 @@ export function PostAdForm() {
 
             <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
               {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Post Ad Now
+              Upload
             </Button>
 
             <p className="text-xs text-center text-muted-foreground">

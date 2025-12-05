@@ -1,10 +1,20 @@
 {
+  "/admin/analytics/page": "app/admin/analytics/page.js",
   "/admin/cars/page": "app/admin/cars/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/admin/page": "app/admin/page.js",
   "/api/admin/cars/[id]/route": "app/api/admin/cars/[id]/route.js",
+  "/api/admin/ping/route": "app/api/admin/ping/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
   "/api/auth/logout/route": "app/api/auth/logout/route.js",
   "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/auth/signup/route": "app/api/auth/signup/route.js",
+  "/api/cars/route": "app/api/cars/route.js",
   "/api/track/route": "app/api/track/route.js",
+  "/api/uploads/cloudinary/sign/route": "app/api/uploads/cloudinary/sign/route.js",
+  "/cars/[id]/page": "app/cars/[id]/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js",
-  "/sell/page": "app/sell/page.js"
+  "/sell/page": "app/sell/page.js",
+  "/signup/page": "app/signup/page.js"
 }
